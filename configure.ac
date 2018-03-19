@@ -24,6 +24,11 @@ if test "x$GCC" = "xyes"; then
   CFLAGS="$CFLAGS -Wall"
 fi
 
+AC_CHECK_PROG([FOUND_CLANG], [clang], [yes])
+if test x"$FOUND_CLANG" == x"yes" ; then
+  CC="clang"
+fi
+
 dnl Checks for html conversion tool from man page
 AC_CHECK_PROG([FOUND_GROFF], [groff], [yes])
 if test x"$FOUND_GROFF" == x"yes" ; then
